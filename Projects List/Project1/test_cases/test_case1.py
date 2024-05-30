@@ -48,7 +48,7 @@ search_for_python_news()
 
 search_for_python_realses()
 
-check_latest_python_version()
+#check_latest_python_version()
 
 
 
