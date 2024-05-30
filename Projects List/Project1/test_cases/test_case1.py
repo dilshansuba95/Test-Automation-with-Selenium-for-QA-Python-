@@ -2,7 +2,8 @@ from jproperties import Properties #imports the Properties class from the jprope
 from selenium import webdriver #imports the webdriver class from the selenium library, which allows you to control a web browser programmatically.
 from selenium.webdriver.common.keys import Keys #imports the Keys class from selenium, which provides access to special keyboard keys like 'ENTER'.
 import sys #imports the sys module, which provides access to system-specific parameters and functions.
-sys.path.append("C:\\QA Automation\\Project1_original\\Project1\\") #Adds a custom directory to the search path for Python modules.
+sys.path.append("C:\\QA Automation\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project1") #Adds a custom directory to the search path for Python modules.
+
 from pages.Home.home_page import click_downloads , search , search_by_looping
 from pages.Downloads.downloads_page import click_download_python
 
@@ -17,7 +18,7 @@ print(test_url)                          #Prints the retrieved test URL to the c
 
 
 def open_browser():  #This function sets up a Chrome webdriver instance using the specified path to the chromedriver.exe file
-    service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\QA Automation\\Project1_original\\Project1\\driver\\chromedriver.exe')
+    service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project1\\driver\\chromedriver.exe') 
     driver = webdriver.Chrome(service=service)
     driver.maximize_window()   #maximizes the browser window
     driver.get(test_url)      #opens the URL stored in the test_url variable 
