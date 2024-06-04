@@ -1,4 +1,11 @@
 import sqlite3
+from datetime import datetime
+import pytz
+
+# Function to get the current time in Sri Lankan time zone
+def get_sri_lankan_time():
+    SL_timezone = pytz.timezone('Asia/Colombo')
+    return datetime.now(SL_timezone).strftime('%Y-%m-%d %H:%M:%S')
 
 # Connect to the SQLite database (or create it if it doesn't exist)
 conn = sqlite3.connect('test.db')
@@ -12,7 +19,7 @@ cur.execute('''
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         test_name TEXT,
         status TEXT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        timestamp TEXT
     )
 ''')
 

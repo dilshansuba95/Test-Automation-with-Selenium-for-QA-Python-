@@ -1,18 +1,27 @@
 import sqlite3
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
+from datetime import datetime
+import pytz
+
+# Function to get the current time in Sri Lankan time zone
+def get_sri_lankan_time():
+    SL_timezone = pytz.timezone('Asia/Colombo')
+    return datetime.now(SL_timezone).strftime('%Y-%m-%d %H:%M:%S')
 
 # Function to store test results in the database
 def store_test_result(test_name, status):
-    conn = sqlite3.connect('test.db')
-    cur = conn.cursor()
-    cur.execute('''
-        INSERT INTO test_results (test_name, status)
-        VALUES (?, ?)
-    ''', (test_name, status))
-    conn.commit()
-    conn.close()
+    try:
+        conn = sqlite3.connect('test.db')
+        cur = conn.cursor()
+        cur.execute('''
+            INSERT INTO test_results (test_name, status, timestamp)
+            VALUES (?, ?, ?)
+        ''', (test_name, status, get_sri_lankan_time()))
+        conn.commit()
+        conn.close()
+    except sqlite3.DatabaseError as e:
+        print(f"Database error: {e}")
 
 # Set up Selenium WebDriver
 driver = webdriver.Chrome()
