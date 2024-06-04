@@ -7,7 +7,7 @@ import pytz
 # Function to get the current time in Sri Lankan time zone
 def get_sri_lankan_time():
     SL_timezone = pytz.timezone('Asia/Colombo')
-    return datetime.now(SL_timezone).strftime('%Y-%m-%d %H:%M:%S')
+    return datetime.now(SL_timezone).strftime('%Y-%m-%d %H:%M:%S:%p')
 
 # Function to store test results in the database
 def store_test_result(test_name, status):
