@@ -13,7 +13,7 @@ rows = cursor.fetchall()
 
 # Print the results (modify for your table structure)
 for row in rows:
-    print(f"id: {row[0]} | test_name: {row[1]} | status: {row[2]} | timestamp: {row[3]}\")
+    print(f"id: {row[0]} | test_name: {row[1]} | status: {row[2]} | timestamp: {row[3]}")
     #id INTEGER PRIMARY KEY AUTOINCREMENT,
     #test_name TEXT,
     #status TEXT,
