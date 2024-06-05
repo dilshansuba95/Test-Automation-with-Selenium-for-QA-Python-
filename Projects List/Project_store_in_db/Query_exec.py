@@ -16,7 +16,7 @@ cursor.execute("SELECT * FROM test_results")
 rows = cursor.fetchall()
 
 # Print the results (modify for your table structure) 
-#loop iterates through each row in rows and prints the values for columns
+#Iterate through the rows and access column values to print
 for row in rows:
     print(f"id: {row[0]} | test_name: {row[1]} | status: {row[2]} | timestamp: {row[3]}")
     #id INTEGER PRIMARY KEY AUTOINCREMENT,
