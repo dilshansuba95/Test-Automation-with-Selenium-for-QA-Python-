@@ -10,6 +10,7 @@ def click_downloads(driver):
     downloads_link.click()
     print('~~~~~~ Downloads link Clicked')
     print(str(driver.current_url))
+    assert str(driver.current_url) == 'https://www.python.org/downloads/'
     return driver
 
 def click_all_releases(driver):
@@ -21,6 +22,7 @@ def click_all_releases(driver):
     all_relases_link.click()
     print('~~~~~~ All releases link Clicked')
     print(str(driver.current_url))
+    assert str(driver.current_url) == 'https://www.python.org/downloads/'
     time.sleep(2)
     return driver
 
@@ -33,6 +35,7 @@ def click_source_code(driver):
     source_code_link.click()
     print('~~~~~~ Source Code link Clicked')
     print(str(driver.current_url))
+    assert str(driver.current_url) == 'https://www.python.org/downloads/source/'
     time.sleep(2)
     return driver
 
@@ -45,6 +48,7 @@ def click_windows(driver):
     windows_link.click()
     print('~~~~~~ Windows link Clicked')
     print(str(driver.current_url))
+    assert str(driver.current_url) == 'https://www.python.org/downloads/windows/'
     time.sleep(2)
     return driver
 
@@ -59,8 +63,10 @@ def search(driver,search_text):
     third_result = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"content\"]/div/section/form/ul/li[1]/h3/a")))  
     if search_text == third_result.text :
         print('Test Case Passed')
+        assert True
     else:
         print('Test Case Failed. The Searched result is'+ third_result.text)
+        assert False
     
     #wait = WebDriverWait(driver, 30)
 
@@ -71,6 +77,7 @@ def search(driver,search_text):
     Python_news_link = third_result
     Python_news_link.click()
     print(str(driver.current_url))
+    assert str(driver.current_url) == 'https://www.python.org/blogs/'
     return driver
 
 def search_by_looping(driver,search_text):
@@ -88,11 +95,13 @@ def search_by_looping(driver,search_text):
             print(search_result.text)
             if search_text == search_result.text :
                 print('Match')
+                assert True
                 break
             else:
                 print('No Match')
         except:
             print()
+            assert False
 
     return driver
 
