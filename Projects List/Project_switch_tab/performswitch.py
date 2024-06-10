@@ -48,6 +48,18 @@ def click_first_result(driver):
         first_result.click()
     else:
         print("The element is not enabled")
+        
+def expected_title(driver, url):
+    act_title = driver.title
+    exp_title = f"{url}"
+    try:
+        if exp_title == act_title:
+            print("Test passed")
+        else:
+            print("Test Failed")
+    except Exception as Exc:
+        print(f"Exception occured: {Exc}")
+
 
 if __name__ == "__main__":
     try:
@@ -62,6 +74,7 @@ if __name__ == "__main__":
         select_option_by_visible_text(driver, "/html/body/div[3]/form/select[1]", "Mexico City")
         select_option_by_visible_text(driver, "/html/body/div[3]/form/select[2]", "London")
         click_find_flights_button(driver, "/html/body/div[3]/form/div/input")
+        expected_title(driver,"BlazeDemo - reserve")
         time.sleep(3)
         print("---(2)---")
         print(driver.current_url)
