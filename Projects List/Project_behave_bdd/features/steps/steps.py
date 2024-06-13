@@ -11,20 +11,21 @@ from behave import given , when , then
 
 driver = ""
 
-def setup_driver(context):
+def setup_driver():
     # Creates a ChromeService object using the ChromeDriverManager.
     # The ChromeDriverManager().install() method will download the latest
     # version of the ChromeDriver executable if it's not already present.
     # There's a typo here; it should be 'install()' not 'instal()'.
-    context.service = ChromeService(ChromeDriverManager().instal())
+    service = ChromeService(ChromeDriverManager().install())
     # Returns a Chrome WebDriver instance specifying the service to use.
     # This WebDriver is what you'll use to interact with the Chrome browser.
-    return webdriver.Chrome(service=context.service)
+    return webdriver.Chrome(service=service)
 
 @given('we go to python.org site')
 def open_browser(context):
-    context.service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\QA Automation\\Project3withdriverzip\\Project3\\driver\\chromedriver.exe')
-    context.driver = webdriver.Chrome(service=context.service)
+    # context.service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\QA Automation\\Project3withdriverzip\\Project3\\driver\\chromedriver.exe')
+    # context.driver = webdriver.Chrome(service=context.service)
+    context.driver = setup_driver()
     context.driver.maximize_window()
     context.driver.get('https://www.python.org/')
 
