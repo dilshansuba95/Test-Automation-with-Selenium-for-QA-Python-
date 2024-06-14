@@ -11,21 +11,21 @@ from behave import given , when , then
 
 driver = ""
 
-def setup_driver():
+def setup_driver(context):
     # Creates a ChromeService object using the ChromeDriverManager.
     # The ChromeDriverManager().install() method will download the latest
     # version of the ChromeDriver executable if it's not already present.
     # There's a typo here; it should be 'install()' not 'instal()'.
-    service = ChromeService(ChromeDriverManager().install())
+    context.service = ChromeService(ChromeDriverManager().install())
     # Returns a Chrome WebDriver instance specifying the service to use.
     # This WebDriver is what you'll use to interact with the Chrome browser.
-    return webdriver.Chrome(service=service)
+    return webdriver.Chrome(service=context.service)
 
 @given('we go to python.org site')
 def open_browser(context):
     # context.service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\QA Automation\\Project3withdriverzip\\Project3\\driver\\chromedriver.exe')
     # context.driver = webdriver.Chrome(service=context.service)
-    context.driver = setup_driver()
+    context.driver = setup_driver(context)
     context.driver.maximize_window()
     context.driver.get('https://www.python.org/')
 
@@ -51,3 +51,12 @@ def click_download_python(context):
     else:
         print('Test Case Failed. The version avaialable to download is'+ download_python_button.text)
         assert False
+    context.driver.quit()
+
+@given('we go to google.com site')
+def google(context):
+    # context.service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\QA Automation\\Project3withdriverzip\\Project3\\driver\\chromedriver.exe')
+    # context.driver = webdriver.Chrome(service=context.service)
+    context.driver = setup_driver(context)
+    context.driver.maximize_window()
+    context.driver.get('https://www.google.com/')
