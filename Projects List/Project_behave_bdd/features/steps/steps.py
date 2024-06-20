@@ -58,21 +58,3 @@ def click_download_python(context):
         print('Test Case Failed. The version avaialable to download is'+ download_python_button.text)
         assert False
     context.driver.close()
-
-#Given steps: Define the initial state before an event (when step) occurs.
-#In this case, navigating to ‘google.com’.
-@given('we go to google.com site')
-def google(context):
-    # context.service = webdriver.ChromeService(executable_path = 'C:\\Users\\USER\\Desktop\\QA Automation\\Project3withdriverzip\\Project3\\driver\\chromedriver.exe')
-    # context.driver = webdriver.Chrome(service=context.service)
-    context.driver = setup_driver(context)
-    context.driver.maximize_window()
-    context.driver.get('https://www.google.com/')
-    context.wait = WebDriverWait(context.driver, 3)
-    Google_search_input = context.wait.until(
-        EC.element_to_be_clickable((By.XPATH,"//*[@id=\"APjFqb\"]"))
-        )
-    Google_search_input.send_keys('Behave framework')
-    Google_search_submit = context.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[4]/center/input[1]")
-    Google_search_submit.click()
-    context.driver.quit()
