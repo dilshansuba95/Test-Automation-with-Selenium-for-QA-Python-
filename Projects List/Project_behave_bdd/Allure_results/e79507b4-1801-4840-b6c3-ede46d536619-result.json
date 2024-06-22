@@ -1,0 +1,57 @@
+{
+    "name": "check for new source -- @1.1 ",
+    "status": "passed",
+    "steps": [
+        {
+            "name": "Given we go to python.org site",
+            "status": "passed",
+            "start": 1719038117128,
+            "stop": 1719038194000
+        },
+        {
+            "name": "When we click source code from Downloads menu",
+            "status": "passed",
+            "start": 1719038194000,
+            "stop": 1719038194726
+        },
+        {
+            "name": "Then we search for the \"Python 3.12.4\" in source",
+            "status": "passed",
+            "start": 1719038194726,
+            "stop": 1719038195421
+        }
+    ],
+    "parameters": [
+        {
+            "name": "latest_relase",
+            "value": "Python 3.12.4"
+        }
+    ],
+    "start": 1719038117127,
+    "stop": 1719038197507,
+    "uuid": "ab898c2b-3657-4010-90b1-8f5aa500de35",
+    "historyId": "38e94ceb931d7784d3c18311ad93580f",
+    "fullName": "Search for new source: check for new source",
+    "labels": [
+        {
+            "name": "severity",
+            "value": "normal"
+        },
+        {
+            "name": "tag",
+            "value": "smoke"
+        },
+        {
+            "name": "feature",
+            "value": "Search for new source"
+        },
+        {
+            "name": "framework",
+            "value": "behave"
+        },
+        {
+            "name": "language",
+            "value": "cpython3"
+        }
+    ]
+}
