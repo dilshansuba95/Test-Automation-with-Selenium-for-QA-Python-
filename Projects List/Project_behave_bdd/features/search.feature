@@ -1,5 +1,5 @@
 #Scenarios in behave are written using the Gherkin syntax
-
+@smoke
 Feature: download Python latest version
     Scenario: download python latest version
         Given we go to python.org site

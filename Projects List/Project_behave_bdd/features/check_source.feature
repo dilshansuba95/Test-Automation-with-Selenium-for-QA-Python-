@@ -1,3 +1,4 @@
+@smoke
 Feature: Search for new source
     Scenario Outline: check for new source
         Given we go to python.org site

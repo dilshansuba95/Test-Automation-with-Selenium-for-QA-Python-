@@ -1,3 +1,4 @@
+@smoke
 Feature: Search for Python Tutorial in w3school
     Scenario Outline: search for tutorial in global search
         Given we go to w3school site
