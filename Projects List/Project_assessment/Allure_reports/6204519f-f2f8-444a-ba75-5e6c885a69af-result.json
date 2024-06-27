@@ -1,0 +1,53 @@
+{
+    "name": "Search for the python course",
+    "status": "passed",
+    "steps": [
+        {
+            "name": "Given User goes to google.lk site",
+            "status": "passed",
+            "start": 1719460400539,
+            "stop": 1719460404340
+        },
+        {
+            "name": "When User types \"eLearning.lk\" in Google and clicks the \"eLearning.lk\" link",
+            "status": "passed",
+            "start": 1719460404340,
+            "stop": 1719460416419
+        },
+        {
+            "name": "Then User searches for the Python course in the eLearning.lk search bar",
+            "status": "passed",
+            "start": 1719460416419,
+            "stop": 1719460436307
+        },
+        {
+            "name": "Then User clicks on the Python course and generate a report of the course content after checking",
+            "status": "passed",
+            "start": 1719460436307,
+            "stop": 1719460438760
+        }
+    ],
+    "start": 1719460400538,
+    "stop": 1719460442846,
+    "uuid": "f05342c0-7450-4998-a8cc-bf02777edf7a",
+    "historyId": "ab234854b7ae5071a17585a1bef3d77c",
+    "fullName": "Search for the python course: Search for the python course",
+    "labels": [
+        {
+            "name": "severity",
+            "value": "normal"
+        },
+        {
+            "name": "feature",
+            "value": "Search for the python course"
+        },
+        {
+            "name": "framework",
+            "value": "behave"
+        },
+        {
+            "name": "language",
+            "value": "cpython3"
+        }
+    ]
+}
