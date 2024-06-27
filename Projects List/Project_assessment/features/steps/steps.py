@@ -83,33 +83,33 @@ def explore_elearning(context):
 
 @then('User clicks on the Python course and generate a report of the course content after checking')
 def elearning_course(context):
-    
-    context.wait = WebDriverWait(context.driver,5) 
-    # Wait until the course content is present
-    content_element_1 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(20)')))
-    content_elements_2 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(21)')))
-    content_elements_3 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(22)')))
-    content_elements_4 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(23)')))
-    content_elements_5 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(24)')))
-    content_elements_6 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(25)')))
-    content_elements_7 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(26)')))
-    content_elements_8 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(27)')))
-    content_elements_9 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(28)')))
-    content_elements_10 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(29)')))
-    content_elements_11 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(30)')))
-    content_elements_12 = context.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#course-title-section > div > div > div > div.we-single-content > p:nth-child(31)')))
+    # Set up an explicit wait of 5 seconds
+    context.wait = WebDriverWait(context.driver, 5) 
 
+    # Initialize an empty list to store the course content elements
+    course_content_elements = []
 
-    course_content_elements = content_element_1 + content_elements_2 + content_elements_3 + content_elements_4 + content_elements_5 + content_elements_6 + content_elements_7 + content_elements_8 + content_elements_9 + content_elements_10 + content_elements_11 + content_elements_12
+    # Loop through the child elements from the 20th to the 31st
+    for i in range(20, 32):
+        # Wait until the elements matching the CSS selector are present in the DOM
+        elements = context.wait.until(EC.presence_of_all_elements_located(
+            (By.CSS_SELECTOR, f'#course-title-section > div > div > div > div.we-single-content > p:nth-child({i})')
+        ))
+        # Extend the list with the newly found elements
+        course_content_elements.extend(elements)
 
-    # Extract text from each course content element
+    # Extract the text from each course content element
     course_content = [element.text for element in course_content_elements]
 
-    # Write the course content to a text file
+    # Open a text file in write mode
     with open('python_course_report.txt', 'w') as file:
+        # Write each content to the file followed by a newline
         for content in course_content:
             file.write(f"{content}\n")
-    print("report generated")
+    
+    print("Report generated")
+
+    time.sleep(5)
     # Close the browser
     context.driver.quit()
 
