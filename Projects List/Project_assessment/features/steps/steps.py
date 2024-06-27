@@ -103,7 +103,10 @@ def elearning_course(context):
         # Write each content to the file followed by a newline
         for content in course_content:
             file.write(f"{content}\n")
+
     print("report generated")
+    
+    time.sleep(4)
     # Close the browser
     context.driver.quit()
 
