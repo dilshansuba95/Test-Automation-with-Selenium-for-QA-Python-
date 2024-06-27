@@ -76,11 +76,8 @@ def explore_elearning(context):
     actions.send_keys(Keys.PAGE_DOWN).perform()
 
     print("----page scrolled down----")
-    # actions = ActionChains(context.driver)
-    # # Scroll down using the Page Down key
-    # actions.send_keys(Keys.PAGE_DOWN).perform()
-    # actions.move_to_element(view_all_courses).perform()
 
+    
 @then('User clicks on the Python course and generate a report of the course content after checking')
 def elearning_course(context):
     # Set up an explicit wait of 5 seconds
@@ -106,10 +103,7 @@ def elearning_course(context):
         # Write each content to the file followed by a newline
         for content in course_content:
             file.write(f"{content}\n")
-    
-    print("Report generated")
-
-    time.sleep(5)
+    print("report generated")
     # Close the browser
     context.driver.quit()
 
