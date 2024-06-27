@@ -1,6 +1,6 @@
 from selenium import webdriver
-# from selenium.webdriver.chrome.service import Service as ChromeService
-# from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -15,12 +15,13 @@ import time
 
 def setup_driver(context):
     
-    # context.service = ChromeService(ChromeDriverManager().install())
-    driverpath = "C:\\Users\\USER\\Desktop\\QA Automation\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project_assessment\\driver\\chromedriver.exe"
-    service = Service(driverpath)
+    context.service = ChromeService(ChromeDriverManager().install())
+    # driverpath = "C:\\Users\\USER\\Desktop\\QA Automation\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project_assessment\\driver\\chromedriver.exe"
+    # service = Service(driverpath)
     options = Options()
     # options.add_argument('--headless=new')
-    context.driver = webdriver.Chrome(service=service,options=options)
+    # context.driver = webdriver.Chrome(service=service,options=options)
+    context.driver = webdriver.Chrome(service=context.service,options=options)
     return context.driver
 
 @given('User goes to google.lk site')

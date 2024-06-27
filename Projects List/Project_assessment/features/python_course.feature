@@ -1,3 +1,4 @@
+@smoke
 Feature: Search for the python course
     Scenario: Search for the python course
         Given User goes to google.lk site
