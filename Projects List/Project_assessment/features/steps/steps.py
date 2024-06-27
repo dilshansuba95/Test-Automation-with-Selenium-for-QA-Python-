@@ -76,8 +76,8 @@ def explore_elearning(context):
     actions.send_keys(Keys.PAGE_DOWN).perform()
 
     print("----page scrolled down----")
-   
 
+    
 @then('User clicks on the Python course and generate a report of the course content after checking')
 def elearning_course(context):
     
@@ -107,8 +107,9 @@ def elearning_course(context):
         for content in course_content:
             file.write(f"{content}\n")
     print("report generated")
-    # Close the browser
+   
     time.sleep(5)
+     # Close the browser
     context.driver.quit()
 
 

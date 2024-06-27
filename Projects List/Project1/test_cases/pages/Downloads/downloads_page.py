@@ -10,8 +10,10 @@ def click_download_python(driver , python_version):
     print(download_python_button.text)
     if python_version == download_python_button.text :
         print('Test Case Passed')
+        assert True
     else:
         print('Test Case Failed. The version avaialable to download is'+ download_python_button.text)
+        assert False
     return driver
 
 

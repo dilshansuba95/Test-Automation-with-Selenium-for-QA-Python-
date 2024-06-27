@@ -1,0 +1,51 @@
+{
+    "name": "download python latest version",
+    "status": "passed",
+    "steps": [
+        {
+            "name": "Given we go to python.org site",
+            "status": "passed",
+            "start": 1719038197510,
+            "stop": 1719038202901
+        },
+        {
+            "name": "When we click downloads",
+            "status": "passed",
+            "start": 1719038202901,
+            "stop": 1719038204890
+        },
+        {
+            "name": "Then we should download python 3.12.4",
+            "status": "passed",
+            "start": 1719038204890,
+            "stop": 1719038205012
+        }
+    ],
+    "start": 1719038197509,
+    "stop": 1719038207069,
+    "uuid": "16f27c44-cd0d-45da-90cf-3925038654ee",
+    "historyId": "845417b69abcafdeb4084ac3b9e635c7",
+    "fullName": "download Python latest version: download python latest version",
+    "labels": [
+        {
+            "name": "severity",
+            "value": "normal"
+        },
+        {
+            "name": "tag",
+            "value": "smoke"
+        },
+        {
+            "name": "feature",
+            "value": "download Python latest version"
+        },
+        {
+            "name": "framework",
+            "value": "behave"
+        },
+        {
+            "name": "language",
+            "value": "cpython3"
+        }
+    ]
+}

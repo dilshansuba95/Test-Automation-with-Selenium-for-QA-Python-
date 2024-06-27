@@ -1,0 +1,61 @@
+{
+    "name": "search for tutorial in global search -- @1.1 ",
+    "status": "passed",
+    "steps": [
+        {
+            "name": "Given we go to w3school site",
+            "status": "passed",
+            "start": 1719038207073,
+            "stop": 1719038235640
+        },
+        {
+            "name": "When we search for \"python\" in global search",
+            "status": "passed",
+            "start": 1719038235640,
+            "stop": 1719038236338
+        },
+        {
+            "name": "Then we check for \"Learn Python\" in the page",
+            "status": "passed",
+            "start": 1719038236339,
+            "stop": 1719038236384
+        }
+    ],
+    "parameters": [
+        {
+            "name": "search_text",
+            "value": "python"
+        },
+        {
+            "name": "tutorial_text",
+            "value": "Learn Python"
+        }
+    ],
+    "start": 1719038207072,
+    "stop": 1719038238485,
+    "uuid": "69aba57b-7080-42f6-9778-bba119aecd8a",
+    "historyId": "074e87d74b95050c48316d6a08886c2e",
+    "fullName": "Search for Python Tutorial in w3school: search for tutorial in global search",
+    "labels": [
+        {
+            "name": "severity",
+            "value": "normal"
+        },
+        {
+            "name": "tag",
+            "value": "smoke"
+        },
+        {
+            "name": "feature",
+            "value": "Search for Python Tutorial in w3school"
+        },
+        {
+            "name": "framework",
+            "value": "behave"
+        },
+        {
+            "name": "language",
+            "value": "cpython3"
+        }
+    ]
+}
