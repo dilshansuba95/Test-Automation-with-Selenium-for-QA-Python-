@@ -11,10 +11,13 @@ from selenium.webdriver.common.keys import Keys
 from behave import given, when , then
 import time
 
-# driverpath = "C:\\Users\\USER\\Desktop\\QA Automation\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project_assessment\\driver\\chromedriver.exe"
-# service = Service(driverpath)
-# options.add_argument('--headless=new')
-# context.driver = webdriver.Chrome(service=service,options=options)
+# def setup_driver(context):
+    # driverpath = "C:\\Users\\USER\\Desktop\\QA Automation\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project_assessment\\driver\\chromedriver.exe"
+    # service = Service(driverpath)
+    # options = Options()
+    # options.add_argument('--headless=new')
+    # context.driver = webdriver.Chrome(service=service,options=options)
+    # return context.driver
 
 def setup_driver(context):
     try:
@@ -24,7 +27,7 @@ def setup_driver(context):
         # Set up Chrome options
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")  # Start browser maximized
-        chrome_options.add_argument("--disable-infobars")  # Disable infobars
+        chrome_options.add_argument("--disable-notifications")  # Disable notifications
         chrome_options.add_argument("--disable-extensions")  # Disable extensions
 
         # Initialize WebDriver
