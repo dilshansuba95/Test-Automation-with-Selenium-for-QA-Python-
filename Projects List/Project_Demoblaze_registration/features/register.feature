@@ -28,7 +28,7 @@ Feature: Registration Page
       | name     | company | email                | password | confirm_password |
       |          | ABC Inc | john.doe@example.com | Pass1234 | Pass1234         |  
       | John Doe |         | john.doe@example.com | Pass1234 | Pass1234         |  
-      | John Doe | ABC Inc | invalid-email        | Pass1234 | Pass1234         |  
+      | John Doe | ABC Inc | doe.@.com            | Pass1234 | Pass1234         |  
       | John Doe | ABC Inc | john.doe@example.com | Pass     | Pass             |  
       | John Doe | ABC Inc | john.doe@example.com | Pass1234 | Pass4321         |  
 
@@ -42,8 +42,8 @@ Feature: Registration Page
     And I submit the registration form
     Then I should see an appropriate message
 
-    #Examples:
+     Examples:
       | name               | company | email                | password | confirm_password |
-      | A very long name   | ABC Inc | john.doe@example.com | Pass1234 | Pass1234         |  
-      | John Doe           | ABC Inc | john.doe@example.com |          |                  |  
-      | John Doe           | ABC Inc | john.doe@example.com | Pass1234 |                  |  
+      | A very long name   | ABC Inc | john.doe@example.com | Pass1234 | Pass1234         |
+      | John Doe           | ABC Inc | john.doe@example.com |          |                  |
+      | John Doe           | ABC Inc | john.doe@example.com | Pass1234 |                  |
