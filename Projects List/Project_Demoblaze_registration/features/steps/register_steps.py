@@ -62,9 +62,17 @@ def step_impl(context, email):
 def step_impl(context, password):
     context.driver.find_element(By.NAME, "password").send_keys(password)
 
+@when('I enter "" in the Password field')
+def step_impl(context):
+    context.driver.find_element(By.NAME, "password").send_keys("")
+
 @when('I enter "{confirm_password}" in the Confirm Password field')
 def step_impl(context, confirm_password):
     context.driver.find_element(By.ID, "password-confirm").send_keys(confirm_password)
+
+@when('I enter "" in the Confirm Password field')
+def step_impl(context):
+    context.driver.find_element(By.ID, "password-confirm").send_keys("")
 
 @when('I submit the registration form')
 def step_impl(context):
