@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import time
 
 #page object model for the login page
 class LoginPage:
@@ -6,9 +7,9 @@ class LoginPage:
         self.driver = driver
         self.email_input = (By.ID, "email")
         self.password_input = (By.ID, "password")
-        self.remember_me_checkbox = (By.ID, "remember_me")
-        self.login_button = (By.ID, "login_button")
-        self.error_message = (By.ID, "error_message")
+        self.remember_me_checkbox = (By.XPATH, '//*[@id="app"]/div/div/div/div/div[2]/form/div[3]/div/div/label/input')
+        self.login_button = (By.CSS_SELECTOR, "button[type='submit']")
+        self.error_message = (By.CSS_SELECTOR, "body > div > div.message")
 
     def enter_email(self, email):
         self.driver.find_element(*self.email_input).send_keys(email)
@@ -21,6 +22,7 @@ class LoginPage:
 
     def click_login(self):
         self.driver.find_element(*self.login_button).click()
+        time.sleep(4)
 
     def get_error_message(self):
         return self.driver.find_element(*self.error_message).text
