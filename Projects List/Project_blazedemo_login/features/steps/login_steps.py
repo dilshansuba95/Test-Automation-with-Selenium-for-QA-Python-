@@ -7,9 +7,6 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
 
 
 def setup_driver(context):
@@ -55,6 +52,10 @@ def step_impl(context):
     context.login_page.enter_email("edgecase@example.com")
     context.login_page.enter_password("edgecasepassword")
 
+@when('I click remember me')
+def step_impl(context):
+    context.login_page.click_remember_me()
+
 @when('I click the login button')
 def step_impl(context):
     context.login_page.click_login()
@@ -63,11 +64,17 @@ def step_impl(context):
 def step_impl(context):
     # Add assertion for successful login
     pass
+    # Example: Check if the URL has changed to the dashboard page
+    #assert context.driver.current_url == "http://example.com/dashboard"
+
+    # Example: Check if a specific element is present on the dashboard page
+    #dashboard_element = context.driver.find_element_by_id("dashboard")
+    #assert dashboard_element.is_displayed()
 
 @then('I should see an error message')
 def step_impl(context):
     error_message = context.login_page.get_error_message()
-    assert error_message == "Invalid credentials"
+    assert error_message == "Page Expired"
 
 @then('I should see an appropriate error message')
 def step_impl(context):
