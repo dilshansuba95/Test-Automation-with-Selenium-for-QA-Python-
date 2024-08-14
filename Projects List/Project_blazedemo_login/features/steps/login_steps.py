@@ -1,27 +1,28 @@
 from behave import given, when, then
 from selenium import webdriver
-from pages.login_page import LoginPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
+from pages.login_page import LoginPage
 
 def setup_driver(context):
     try:
-        # Set up ChromeDriver service
-        chrome_service = ChromeService(ChromeDriverManager().install())
-
-        # Set up Chrome options
+        #Set up Chrome options
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")  # Start browser maximized
         chrome_options.add_argument("--disable-notifications")  # Disable notifications
         chrome_options.add_argument("--disable-extensions")  # Disable extensions
-
+        
         # Initialize WebDriver
-        context.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+        service = webdriver.ChromeService(executable_path = r'C:\\Users\\USER\\Desktop\\QA Automation\\Test-Automation-with-Selenium-for-QA-Python-\\Projects List\\Project_blazedemo_login\\driver\\chromedriver.exe') 
+        # Automatically download and set up the ChromeDriver
+        #service = ChromeService(ChromeDriverManager().install())
+        context.driver = webdriver.Chrome(service=service)
+        context.driver.maximize_window()#maximizes the browser window
+        #context.driver = webdriver.Chrome(ChromeDriverManager().install())
         return context.driver
     except Exception as e:
         print(f"An error occurred while setting up the driver: {e}")
@@ -62,21 +63,21 @@ def step_impl(context):
 
 @then('I should be logged in successfully')
 def step_impl(context):
-    # Add assertion for successful login
+    #Add assertion for successful login
     pass
-    # Example: Check if the URL has changed to the dashboard page
-    #assert context.driver.current_url == "http://example.com/dashboard"
+    #Example: Check if the URL has changed to the dashboard page
+    assert context.driver.current_url == "https://blazedemo.com/login"
 
-    # Example: Check if a specific element is present on the dashboard page
-    #dashboard_element = context.driver.find_element_by_id("dashboard")
-    #assert dashboard_element.is_displayed()
+    #Example: Check if a specific element is present on the dashboard page
+    dashboard_element = context.driver.find_element_by_id("dashboard")
+    assert dashboard_element.is_displayed()
 
 @then('I should see an error message')
 def step_impl(context):
     error_message = context.login_page.get_error_message()
-    assert error_message == "Page Expired"
+    assert error_message == "invalid login"
 
 @then('I should see an appropriate error message')
 def step_impl(context):
     error_message = context.login_page.get_error_message()
-    assert error_message == "Invalid credentials"
+    assert error_message == "invalid login"
