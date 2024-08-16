@@ -1,4 +1,4 @@
-Feature: Login Functionality of expandtesting.com
+Feature: Login Functionality of orangehrm.com
 
     Scenario: Valid login test (Positive)
         Given I Open login page
