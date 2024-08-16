@@ -1,0 +1,5 @@
+
+behave -f allure_behave.formatter:AllureFormatter -o Project_behave_bdd
+behave -f allure_behave.formatter:AllureFormatter -o %Project_behave_bdd% ./features 
+behave -f allure_behave.formatter:AllureFormatter -o %C:\Users\USER\Desktop\QA Automation\Test-Automation-with-Selenium-for-QA-Python-\Projects List\Project_behave_bdd\Allure_reports% ./features
+allure serve %Project_behave_bdd%(path folder)
