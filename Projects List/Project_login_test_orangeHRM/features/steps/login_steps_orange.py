@@ -78,7 +78,6 @@ def step_imp(context):
 def step_imp(context):
     error_message = "Invalid credentials"
     username_error = context.login_page_orange.get_error_msg()
-    # username_error = context.driver.find_element(By.LINK_TEXT,"Invalid credentials")
 
     assert username_error == error_message, "username error is not diplayed"
 
@@ -86,7 +85,6 @@ def step_imp(context):
 def step_imp(context):
     error_message = "Invalid credentials"
     password_error = context.login_page_orange.get_error_msg()
-    # password_error = context.driver.find_element(By.LINK_TEXT,"Invalid credentials")
 
     assert password_error == error_message, "password error is not diplayed"
 
