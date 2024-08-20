@@ -41,6 +41,10 @@ def step_imp(context):
 def step_imp(context):
     context.login_page_orange.enter_username("incorrectUser")
 
+@when(u'I Type empty username into Username field')
+def step_imp(context):
+    context.login_page_orange.enter_empty_username()
+
 @when(u'I Type password \'@6f@D7@jnSPN\' into Password field')
 def step_imp(context):
     context.login_page_orange.enter_password("@6f@D7@jnSPN")
@@ -48,6 +52,10 @@ def step_imp(context):
 @when(u'I Type password \'incorrectPassword\' into Password field')
 def step_imp(context):
     context.login_page_orange.enter_password("incorrectPassword")    
+
+@when(u'I Type empty password into password field')
+def step_imp(context):
+    context.login_page_orange.enter_empty_password()
 
 @when(u'I Push Login button')
 def step_imp(context):
@@ -86,7 +94,16 @@ def step_imp(context):
     error_message = "Invalid credentials"
     password_error = context.login_page_orange.get_error_msg()
 
-    assert password_error == error_message, "password error is not diplayed"
+    assert password_error == error_message, "password error is not correctly diplayed"
+
+@then (u'I Verify error message for username and password are displayed')
+def step_imp(context):
+    error_message = "Required"
+    username_error = context.login_page_orange.get_empty_username_error_msg()
+    password_error = context.login_page_orange.get_empty_password_error_msg()
+
+    assert username_error == error_message, "Empty username error is not correctly diplayed"
+    assert password_error == error_message, "Empty password error is not correctly diplayed"
 
 # @then(u'I Verify error message text is "Your username is invalid!"')
 # def step_imp(context):
