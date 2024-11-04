@@ -3,8 +3,8 @@ Library           RequestsLibrary
 Library           CustomKeywords.py
 
 *** Variables ***
-# ${API_KEY}    a873024698c088ef8ecbceb087f13bb2
-${BASE_URL}      https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&appid=a873024698c088ef8ecbceb087f13bb2
+${API_KEY}    a873024698c088ef8ecbceb087f13bb2
+${BASE_URL}      https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&appid=${API_KEY}
 
 *** Test Cases ***
 Get Weather Data for Sri Lanka
