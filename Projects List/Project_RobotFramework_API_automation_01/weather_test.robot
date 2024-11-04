@@ -19,7 +19,12 @@ Get Weather Data for Sri Lanka
     # Convert response content to pretty JSON and log it
     ${pretty_json}    Evaluate    json.dumps(json.loads('''${response.content}'''), indent=4)    json
     Log To Console    ${pretty_json}
-    Log    Weather data: ${pretty_json}
+    Log    Weather data content: ${pretty_json}
+
+    # Convert response headers to pretty JSON and log it
+    ${pretty_headers}    Evaluate    json.dumps(dict(${response.headers}), indent=4)    json
+    Log To Console    ${pretty_headers}
+    Log    Weather data headers: ${pretty_headers}
 
 *** Keywords ***
 Create Weather API Session
