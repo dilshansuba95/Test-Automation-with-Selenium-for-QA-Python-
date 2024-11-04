@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2024-11-04T15:48:05.020526" rpa="false" schemaversion="5">
+<suite id="s1" name="Weather Test" source="C:\Users\USER\Desktop\QA Automation\Test-Automation-with-Selenium-for-QA-Python-\Projects List\Project_API_automation\weather_test.robot">
+<test id="s1-t1" name="Get Weather Data for Sri Lanka" line="10">
+<kw name="Disable Warnings" owner="CustomKeywords">
+<status status="PASS" start="2024-11-04T15:48:05.525608" elapsed="0.000000"/>
+</kw>
+<kw name="Create Weather API Session">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-11-04T15:48:05.527599" level="INFO">Creating Session using : alias=weather_api, url=https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>weather_api</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-11-04T15:48:05.526602" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-11-04T15:48:05.526602" elapsed="0.000997"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-11-04T15:48:05.988636" level="INFO">GET Request : url=https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119/ 
+ path_url=/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-11-04T15:48:05.988636" level="INFO">GET Response : url=https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119/ 
+ status=401, reason=Unauthorized 
+ headers={'Server': 'openresty', 'Date': 'Mon, 04 Nov 2024 10:18:05 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '108', 'Connection': 'keep-alive', 'X-Cache-Key': '/data/2.5/weather?q=sri%20lanka', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET, POST'} 
+ body={"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."} 
+ </msg>
+<msg time="2024-11-04T15:48:05.988636" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119/</msg>
+<var>${response}</var>
+<arg>weather_api</arg>
+<arg>/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2024-11-04T15:48:05.528594" elapsed="0.463031">HTTPError: 401 Client Error: Unauthorized for url: https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119/</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-11-04T15:48:05.991625" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Weather data: ${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-11-04T15:48:05.992623" elapsed="0.000000"/>
+</kw>
+<doc>Get weather data for Sri Lanka</doc>
+<status status="FAIL" start="2024-11-04T15:48:05.524608" elapsed="0.468015">HTTPError: 401 Client Error: Unauthorized for url: https://api.openweathermap.org/data/2.5/weather?q=Sri%20Lanka&amp;appid=d2e07aa8e8440401b3161ee9d6b49119/</status>
+</test>
+<status status="FAIL" start="2024-11-04T15:48:05.021524" elapsed="0.973093"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Weather Test">Weather Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
